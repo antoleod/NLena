@@ -1,0 +1,21 @@
+{
+  "name": "Léna — Appli éducative",
+  "short_name": "Léna",
+  "description": "Jeux éducatifs et sons pour enfants (7-8 ans), interface adaptée TDAH.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fcf8e8",
+  "theme_color": "#a890f0",
+  "icons": [
+    {
+      "src": "assets/avatars/licorne.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "assets/avatars/licorne.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

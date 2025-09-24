@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Poème Mystère — Léna</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/poeme.css">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+  <main class="poeme-container">
+    <h1>Poème Mystère</h1>
+    
+    <nav class="modes-navigation">
+      <button class="mode-btn actif" data-mode="decouverte">Mode Découverte</button>
+      <button class="mode-btn" data-mode="cache-cache">Mode Cache-cache</button>
+      <button class="mode-btn" data-mode="puzzle">Mode Puzzle</button>
+      <button class="mode-btn" data-mode="recitation">Mode Récitation</button>
+      <button class="mode-btn" data-mode="defi">Défi Final</button>
+    </nav>
+
+    <div class="barre-progression">
+      <div class="progression" style="width: 0%"></div>
+    </div>
+
+    <section id="poeme-content" aria-live="polite">
+      <!-- Le contenu du mode actif sera injecté ici -->
+    </section>
+
+    <div class="navigation-strophes">
+      <button class="btn-nav" id="prev-strophe" disabled>⬅️ Strophe précédente</button>
+      <button class="btn-nav" id="next-strophe">Strophe suivante ➡️</button>
+    </div>
+
+    <div id="poeme-feedback" aria-live="polite"></div>
+    <a href="menu.html" class="btn-retour">⬅️ Retour au menu</a>
+  </main>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/games/poeme.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js').catch(()=>{});
+  </script>
+</body>
+</html>

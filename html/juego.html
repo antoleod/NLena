@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Jeux éducatifs pour enfants — niveau, pièces, et mini-jeux de Léna." />
+  <title>Appli de Léna — Jeu 🦄</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/juego.css">
+  <link rel="stylesheet" href="../css/juego_extras.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body class="body-level-1">
+
+  <a class="skip-link" href="#content">Aller au contenu principal</a>
+  <noscript>
+    <div class="noscript-warning">Ce jeu nécessite JavaScript pour fonctionner correctement. Activez JavaScript dans votre navigateur.</div>
+  </noscript>
+
+  <header id="stageTop" role="banner">
+    <div class="scores-container" role="region" aria-label="Statut du joueur">
+      <span id="user-info" aria-live="polite"></span>
+      <span id="scoreStars" aria-live="polite" class="score">0</span>
+      <span id="scoreCoins" class="coins" aria-live="polite">0</span>
+      <span id="level" class="level" aria-live="polite">Niveau 1</span>
+    </div>
+
+    <nav class="top-buttons" role="navigation" aria-label="Contrôles du jeu">
+      <button type="button" id="btnShop" class="btn" aria-controls="shopModal">🛍️ Boutique</button>
+      <button type="button" id="btnLogros" class="btn">🏆 Succès</button>
+      <button type="button" id="btnLogout" class="btn">🚪 Quitter</button>
+      <button type="button" id="btnBack" class="btn">🔙 Retour</button>
+    </nav>
+  </header>
+
+  <main id="stageBottom" role="main">
+    <div id="content" tabindex="-1">
+      <!-- Le contenu du jeu est injecté dynamiquement via JavaScript -->
+
+      <!-- new categories are injected into the existing options-grid by juego.js -->
+    </div>
+
+    <div id="stageBtns" class="controls" role="group" aria-label="Navigation des questions">
+      <button type="button" id="btnPrev" class="btn" aria-label="Précédent">⬅️ Précédent</button>
+      <button type="button" id="btnSkip" class="btn" aria-label="Passer">⏭️ Passer</button>
+    </div>
+  </main>
+
+  <!-- Sound Effects (local fallbacks) -->
+  <audio id="audioCorrect" src="../assets/sounds/correct.wav" preload="auto"></audio>
+  <audio id="audioWrong" src="../assets/sounds/level-up.wav" preload="auto"></audio>
+
+  <!-- Shop Modal -->
+  <div id="shopModal" class="shop-modal" aria-hidden="true">
+    <div class="shop-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="shopModalTitle">
+      <div class="shop-modal__header">
+        <h2 id="shopModalTitle">Boutique de récompenses</h2>
+        <button type="button" id="shopClose" class="shop-modal__close" aria-label="Fermer la boutique">×</button>
+      </div>
+
+      <p class="shop-modal__subtitle">Échange tes pièces contre des cadeaux magiques ✨</p>
+
+      <div class="shop-modal__content">
+        <section class="shop-section" aria-label="Articles disponibles">
+          <h3>Articles disponibles</h3>
+          <ul id="shopList" class="shop-list"></ul>
+        </section>
+
+        <section class="shop-section" aria-label="Mes trésors">
+          <h3>Mes trésors</h3>
+          <ul id="inventoryList" class="shop-inventory"></ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+  <script src="../games/puzzlemagique.js"></script>
+  <script src="../games/repartis.js"></script>
+  <script src="../games/dictee.js"></script>
+  <script src="../js/avatarData.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/juego.js"></script>
+  <script src="../js/juego_extras.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('SW registered', reg.scope))
+        .catch(err => console.warn('SW registration failed', err));
+    }
+  </script>
+
+</body>
+</html>

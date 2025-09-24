@@ -1,0 +1,224 @@
+/* Styles généraux */
+.poeme-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Mode Découverte */
+.strophe {
+  position: relative;
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 15px;
+  background: var(--bg-color, #fff);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.strophe-1 { --bg-color: #fff5e6; }
+.strophe-2 { --bg-color: #e6f3ff; }
+.strophe-3 { --bg-color: #f5e6ff; }
+.strophe-4 { --bg-color: #e6ffe6; }
+
+.mot {
+  display: inline-block;
+  padding: 2px 5px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.mot.actif {
+  background: #FFD700;
+  font-weight: bold;
+}
+
+.bouton-audio {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #4CAF50;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.bouton-audio:hover {
+  transform: scale(1.1);
+}
+
+/* Mode Cache-cache */
+.mot-cache {
+  display: inline-block;
+  min-width: 60px;
+  height: 30px;
+  border: 2px dashed #666;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+.mot-draggable {
+  display: inline-block;
+  padding: 5px 10px;
+  background: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  cursor: grab;
+  user-select: none;
+}
+
+.mot-correct {
+  animation: brillance 1s ease-in-out;
+}
+
+@keyframes brillance {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.1); filter: brightness(1.3); }
+}
+
+/* Mode Puzzle */
+.vers-puzzle {
+  padding: 10px;
+  margin: 5px 0;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: grab;
+}
+
+.zone-puzzle {
+  min-height: 200px;
+  padding: 15px;
+  border: 3px dashed #ccc;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+/* Mode Récitation */
+.indices-recitation {
+  font-size: 1.2em;
+  line-height: 2;
+}
+
+.premiere-lettre {
+  font-weight: bold;
+  color: #2196F3;
+}
+
+.compteur-etoiles {
+  display: flex;
+  gap: 5px;
+  margin: 10px 0;
+}
+
+.etoile {
+  font-size: 24px;
+  color: #ddd;
+  transition: color 0.3s;
+}
+
+.etoile.gagnee {
+  color: #FFD700;
+}
+
+/* Défi final */
+.illustration-finale {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Barre de progression */
+.barre-progression {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: #eee;
+}
+
+.progression {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
+  transition: width 0.3s ease;
+}
+
+/* Animations */
+@keyframes feuille-tombe {
+  0% { transform: translate(0, -50px) rotate(0deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translate(var(--final-x), 100vh) rotate(360deg); opacity: 0; }
+}
+
+.feuille {
+  position: fixed;
+  pointer-events: none;
+  font-size: 24px;
+  animation: feuille-tombe 3s linear forwards;
+}
+
+/* Adaptations TDAH */
+.bouton-interaction {
+  padding: 15px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.bouton-interaction:hover {
+  transform: scale(1.05);
+}
+
+/* Diplôme */
+.diplome {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 40px;
+  background: linear-gradient(45deg, #fff9c4, #ffecb3);
+  border: 10px solid #4CAF50;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.diplome h2 {
+  color: #4CAF50;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.diplome .nom {
+  font-size: 1.5em;
+  color: #2196F3;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.sceau {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+  background: #4CAF50;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 40px;
+  transform: rotate(-15deg);
+}
